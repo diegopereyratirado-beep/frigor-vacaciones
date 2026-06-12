@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: frigor-vacaciones
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false # pegar aquí la URL de Neon al crear el servicio
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "480"
